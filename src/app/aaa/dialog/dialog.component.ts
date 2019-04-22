@@ -7,6 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: 'dialog.component.html'
 })
 export class DialogComponent implements OnInit {
+  hasAddress = false;
   isVIP = false;
 
   constructor(
@@ -15,6 +16,7 @@ export class DialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.hasAddress = Object.keys(this.data.address).length > 0;
     this.isVIP = this.data.level > 0;
   }
 

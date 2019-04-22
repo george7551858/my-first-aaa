@@ -70,7 +70,7 @@ export class AaaGridComponent implements OnInit {
   }
 
   createAction() {
-    const emptyUser = {}; //FIXME
+    const emptyUser = { address: {}, company: {} }; //FIXME
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '360px',
       data: emptyUser

@@ -16,6 +16,25 @@
     <mat-checkbox [(ngModel)]="isVIP">VIP</mat-checkbox>
     <mat-slider *ngIf="isVIP" [(ngModel)]="data.level" min="1" max="5" step="1" tickInterval="1"></mat-slider>{{data.level}}
   </section>
+  <section>
+    <mat-checkbox [(ngModel)]="hasAddress">With Address</mat-checkbox>
+  </section>
+  <mat-card *ngIf="hasAddress">
+    <mat-card-content>
+      <mat-form-field>
+          <input matInput [(ngModel)]="data.address.city" placeholder="City">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.address.street" placeholder="Street">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.address.suite" placeholder="Suite">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.address.zipcode" placeholder="Zip Code">
+        </mat-form-field>
+    </mat-card-content>
+  </mat-card>
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button (click)="onNoClick()">Cancel</button>
