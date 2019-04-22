@@ -13,6 +13,7 @@ export interface User {
   website: string;
   id: number;
   username: string;
+  level: number;
   address: {
     street: string,
     suite: string,
@@ -69,9 +70,10 @@ export class AaaGridComponent implements OnInit {
   }
 
   createAction() {
+    const emptyUser = {}; //FIXME
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '360px',
-      data: {}
+      data: emptyUser
     });
 
     dialogRef.afterClosed().subscribe(result => {

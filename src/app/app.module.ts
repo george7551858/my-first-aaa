@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { DialogComponent } from './aaa/dialog/dialog.component';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -30,6 +31,10 @@ import { DialogComponent } from './aaa/dialog/dialog.component';
     material.MatIconModule,
     material.MatFormFieldModule,
     material.MatInputModule,
+    material.MatCheckboxModule,
+    material.MatCardModule,
+    material.MatDividerModule,
+    material.MatSliderModule,
     HttpClientModule
   ],
   providers: [UserService],
