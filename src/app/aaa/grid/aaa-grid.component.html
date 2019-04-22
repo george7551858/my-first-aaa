@@ -1,7 +1,7 @@
 <button mat-raised-button (click)="refresh()"><mat-icon>refresh</mat-icon> refresh</button>
-<button mat-raised-button (click)="createUser()"><mat-icon>create</mat-icon> create</button>
-<button mat-raised-button (click)="editUser(this.selection.selected[0])" [disabled]="!isSelected"><mat-icon>edit</mat-icon> edit</button>
-<button mat-raised-button (click)="deleteUser(this.selection.selected[0])" [disabled]="!isSelected"><mat-icon>delete</mat-icon> delete</button>
+<button mat-raised-button (click)="createAction()"><mat-icon>create</mat-icon> create</button>
+<button mat-raised-button (click)="editAction(this.selection.selected[0])" [disabled]="!isSelected"><mat-icon>edit</mat-icon> edit</button>
+<button mat-raised-button (click)="deleteAction(this.selection.selected[0])" [disabled]="!isSelected"><mat-icon>delete</mat-icon> delete</button>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource"  matSort>
 

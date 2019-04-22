@@ -64,18 +64,18 @@ export class AaaGridComponent implements OnInit {
     this.selection.changed
       .subscribe((s) => {
         this.isSelected = this.selection.selected.length > 0;
-        console.log(s.source.selected[0]);
+        console.log('select: ', s.source.selected[0]);
       });
   }
 
-  createUser() {
+  createAction() {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '360px',
       data: {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      console.log('create: ', result);
       if (!result) {
         return;
       }
@@ -84,25 +84,30 @@ export class AaaGridComponent implements OnInit {
     });
   }
 
-  editUser(editTarget) {
+  editAction(editTarget) {
     if (!editTarget) {
       return;
     }
+    const clonedObject = Object.assign({}, editTarget);
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '360px',
-      data: editTarget
+      data: clonedObject
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      console.log('edit: ', result);
+      if (!result) {
+        return;
+      }
+      Object.assign(editTarget, result); // Edit target data with dialog's result.
     });
   }
 
-  deleteUser(deleteTarget) {
+  deleteAction(deleteTarget) {
     if (!deleteTarget) {
       return;
     }
-    this.records = this.records.filter(itme => itme.id !== deleteTarget.id);
+    this.records = this.records.filter(item => item.id !== deleteTarget.id);
     this.refresh();
   }
 
